@@ -6390,7 +6390,7 @@
   dependencies:
     "passport-oauth1" "1.x.x"
 
-"passport-google-oauth20@2.x.x":
+"passport-google-oauth20@^2.0.0", "passport-google-oauth20@2.x.x":
   "integrity" "sha512-KSk6IJ15RoxuGq7D1UKK/8qKhNfzbLeLrG3gkLZ7p4A6DBCcv7xpyQwuXtWdpyR0+E0mwkpjY1VfPOhxQrKzdQ=="
   "resolved" "https://registry.npmjs.org/passport-google-oauth20/-/passport-google-oauth20-2.0.0.tgz"
   "version" "2.0.0"
