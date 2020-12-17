@@ -1,19 +1,20 @@
 # uPlace
 
 Upload your video and enjoy.
-https://nomadcoders.co/wetube
+
+- Academy: https://nomadcoders.co/wetube
 
 ## Pages:
 
-- [ ] Home
+- [x] Home
 - [x] Join
 - [x] Login
 - [x] Search
-- [ ] User Detail
-- [ ] Edit Profile
-- [ ] Change Password
-- [ ] Upload
+- [x] User Detail
+- [x] Edit Profile
+- [x] Change Password
+- [x] Upload
 - [ ] Video Detail
-- [ ] Edit Video
+- [x] Edit Video
 
 
