@@ -123,3 +123,4 @@ dist
 package-lock.json
 uploads
 static
+build
