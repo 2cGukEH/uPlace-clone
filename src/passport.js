@@ -15,7 +15,7 @@ passport.use(
             clientID: process.env.GH_ID,
             clientSecret: process.env.GH_SECRET,
             callbackURL: process.env.PRODUCTION ?
-                `https://pacific-scrubland-34681.herokuapp.com${routes.githubCallback}` : `http://localhost:4000${routes.githubCallback}`
+                `https://uplace.me${routes.githubCallback}` : `http://localhost:4000${routes.githubCallback}`
         },
         githubLoginCallback
     )
@@ -27,7 +27,7 @@ passport.use(
             clientID: process.env.GG_ID,
             clientSecret: process.env.GG_SECRET,
             callbackURL: process.env.PRODUCTION ?
-                `https://pacific-scrubland-34681.herokuapp.com${routes.googleCallback}` : `http://localhost:4000${routes.googleCallback}`,
+                `https://uplace.me${routes.googleCallback}` : `http://localhost:4000${routes.googleCallback}`,
         },
         googleLoginCallback
     )
