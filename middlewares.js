@@ -3,11 +3,12 @@ import multerS3 from "multer-s3";
 import aws from "aws-sdk";
 import routes from "./routes";
 
-const s3 = new aws.S3({
+export const s3 = new aws.S3({
     accessKeyId: process.env.AWS_KEY,
     secretAccessKey: process.env.AWS_PRIVATE_KEY,
     region: "ap-northeast-1"
 });
+
 
 const multerVideo = multer({
     storage: multerS3({
@@ -23,8 +24,10 @@ const multerAvatar = multer({
         bucket: "aws-uplace/avatar"
     })
 });
+
 export const uploadVideo = multerVideo.single("videoFile");
 export const uploadAvatar = multerAvatar.single("avatar");
+
 
 export const localsMiddleware = (req, res, next) => {
     res.locals.siteName = "uPlace, This is your videos";

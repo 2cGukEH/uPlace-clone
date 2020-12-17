@@ -82,6 +82,7 @@ const routes = {
             return DELETE_VIDEO;
         }
     },
+
     google: GOOGLE,
     googleCallback: GOOGLE_CALLBACK,
     gitHub: GITHUB,

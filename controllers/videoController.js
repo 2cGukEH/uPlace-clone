@@ -1,7 +1,7 @@
 import routes from "../routes";
 import Video from "../models/Video";
 import Comment from "../models/Comment";
-
+import { s3 } from "../middlewares";
 // Home
 
 export const home = async(req, res) => {
@@ -101,21 +101,30 @@ export const postEditVideo = async(req, res) => {
 
 // Delete Video
 
+
 export const deleteVideo = async(req, res) => {
     const {
-        params: { id }
+        params: { id },
     } = req;
     try {
-        const video = await Video.findById(id);
-        if (video.creator !== req.user.id) {
-            throw Error();
-        } else {
-            await Video.findOneAndRemove({ _id: id });
-        }
-    } catch (error) {
-        console.log(error);
+        const currentPost = await Video.findById(id);
+        const regex = /(http[s]?:\/\/)?([^\/\s]+\/)(.*)/;
+        const filePath = await currentPost.fileUrl.match(regex)[3];
+        const delFile = {
+            Bucket: process.env.AWS_PRODUCT_BUCKET,
+            Key: filePath,
+        };
+
+        await s3.deleteObject(delFile, function(err, data) {
+            if (err) console.log(err);
+            else console.log("The file has been removed");
+        }).promise();
+        await Video.findByIdAndRemove({ _id: id });
+        res.redirect(routes.home);
+    } catch {
+        res.status(400);
+        res.redirect(routes.notFound);
     }
-    res.redirect(routes.home);
 };
 
 // Register Video View
