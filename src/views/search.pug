@@ -1,0 +1,17 @@
+extends layouts/main
+include mixins/videoBlock
+
+block content
+    .search_header
+        h3 검색어: #{searchingBy}
+    .search__videos
+        if videos.length == 0
+            <br>
+            h5 나름 열심히 찾아보았지만, 그 어떤한 것도 찾을 수가 없었어요...
+        each item in videos
+            +videoBlock({
+                title:item.title,
+                views:item.views,
+                videoFile:item.videoFile,
+                id:item.id
+            })
