@@ -1,13 +1,16 @@
 extends layouts/main
 
 block content
-    .form-container
+    .form-container    
         .record-container#jsRecordContainer
+            <div class="wrapTitle">
+            <div class=topLogintitle>동영상 업로드</div> 
+            br
             video#jsVideoPreview
-            button#jsRecordBtn Start Recording
+            button#jsRecordBtn 녹화 시작하기
         form(action=`/videos${routes.upload}`, method="post", enctype="multipart/form-data")
             div.fileUpload
-                label(for="file") Video File
+                label(for="file") 또는, 동영상 파일을 선택하여 업로드<br><br>
                 input(type="file", id="file", name="videoFile", required=true, accept="video/*")
             input(type="text", placeholder="Title", name="title", required=true)
             textarea(name="description", placeholder="Description", required=true)
