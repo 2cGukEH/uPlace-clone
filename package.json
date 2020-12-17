@@ -4,7 +4,6 @@
     "description": "Cloning Youtube with Vanilla and NodeJS",
     "main": "index.js",
     "author": "Kim myeong jae",
-    "private": true,
     "dependencies": {
         "@babel/cli": "^7.12.10",
         "@babel/core": "^7.12.9",
@@ -57,7 +56,7 @@
         "prebuild": "rm -rf build",
         "tunnel": "lt --port 4000",
         "start": "PRODUCTION=true node build/init.js",
-        "start": "PRODUCTION=true node build/init.js",
+        "prestart": "npm run build"
     },
     "devDependencies": {
         "autoprefixer": "^10.0.0",
