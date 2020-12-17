@@ -27,6 +27,21 @@ const CokieStore = MongoStore(session);
     res.setHeader("Content-Security-Policy", "script-src 'self' https://archive.org");
     return next();
 }); */
+
+
+app.use(function(req, res, next) {
+    if (!req.secure) {
+        res.redirect(`https://${  req.headers.host  }${req.url}`);
+    } else {
+        next();
+    }
+});
+
+
+
+
+
+
 app.use(
     helmet({
         contentSecurityPolicy: false,
