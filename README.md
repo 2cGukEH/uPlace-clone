@@ -2,9 +2,7 @@
 
 Upload your video and enjoy.
 
-- Academy -
-
-https://nomadcoders.co/wetube
+- Academy: https://nomadcoders.co/wetube
 
 ## Pages:
 
