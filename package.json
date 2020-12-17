@@ -6,6 +6,7 @@
     "author": "Kim myeong jae",
     "private": true,
     "dependencies": {
+        "@babel/cli": "^7.12.10",
         "@babel/core": "^7.12.9",
         "@babel/node": "^7.12.6",
         "@babel/polyfill": "^7.12.1",
@@ -56,7 +57,7 @@
         "prebuild": "rm -rf build",
         "tunnel": "lt --port 4000",
         "start": "PRODUCTION=true node build/init.js",
-        "prestart": "npm run build"
+        "start": "PRODUCTION=true node build/init.js",
     },
     "devDependencies": {
         "autoprefixer": "^10.0.0",
