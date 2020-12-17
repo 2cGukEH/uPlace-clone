@@ -4,6 +4,6 @@ mixin videoBlock(video = {})
             video.videoBlock__thumbnail(src=video.videoFile, controls=false)
             h4.videoBlock__title=video.title
             if video.views === 1
-                h6.videoBlock__views 1 view
+                h6.videoBlock__views 조회수 1회
             else
                 h6.videoBlock__views 조회수 #{video.views}회
