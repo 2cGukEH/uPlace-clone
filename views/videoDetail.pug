@@ -30,7 +30,7 @@ block content
                     span#jsCommentNumber=video.comments.length
                     | 개의 댓글
             form.add__comment#jsAddComment
-                input(type="text", placeholder="Add a comment")
+                input(type="text", placeholder="코멘트 작성하기")
             ul.video__comments-list#jsCommentList
                 each comment in video.comments.reverse()
                     li
