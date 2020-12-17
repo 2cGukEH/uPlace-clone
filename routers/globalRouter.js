@@ -10,6 +10,8 @@ import {
     postLogin,
     githubLogin,
     postGithubLogIn,
+    googleLogin,
+    postGoogleLogIn,
     getMe
 } from "../controllers/userController";
 import { onlyPublic, onlyPrivate } from "../middlewares";
@@ -32,6 +34,13 @@ globalRouter.get(
     routes.githubCallback,
     passport.authenticate("github", { failureRedirect: "/login" }),
     postGithubLogIn
+);
+
+globalRouter.get(routes.google, googleLogin);
+globalRouter.get(
+    routes.googleCallback,
+    passport.authenticate("google", { failureRedirect: "/login" }),
+    postGoogleLogIn
 );
 
 globalRouter.get(routes.me, getMe);

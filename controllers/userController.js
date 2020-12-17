@@ -65,25 +65,31 @@ export const postGithubLogIn = (req, res) => {
     res.redirect(routes.home);
 };
 
-export const facebookLogin = passport.authenticate("facebook");
+// Google Login Controller
 
-export const facebookLoginCallback = async(_, __, profile, cb) => {
+export const googleLogin = passport.authenticate("google", {
+    scope: ["profile", "email"],
+    successFlash: "Welcome to ShigatsuTube!",
+    failureFlash: "Failed to Log In, Check your email or password",
+});
+
+export const googleLoginCallback = async(_, __, profile, cb) => {
     const {
-        _json: { id, name, email }
+        _json: { sub: id, picture: avatarUrl, name, email },
     } = profile;
     try {
         const user = await User.findOne({ email });
         if (user) {
-            user.facebookId = id;
-            user.avatarUrl = `https://graph.facebook.com/${id}/picture?type=large`;
+            user.googleId = id;
             user.save();
+            // console.log(user);
             return cb(null, user);
         }
         const newUser = await User.create({
-            email,
             name,
-            facebookId: id,
-            avatarUrl: `https://graph.facebook.com/${id}/picture?type=large`
+            email,
+            avatarUrl,
+            googleId: id,
         });
         return cb(null, newUser);
     } catch (error) {
@@ -91,11 +97,9 @@ export const facebookLoginCallback = async(_, __, profile, cb) => {
     }
 };
 
-export const postFacebookLogin = (req, res) => {
+export const postGoogleLogIn = (req, res) => {
     res.redirect(routes.home);
 };
-
-
 
 export const logout = (req, res) => {
     req.logout();

@@ -1,3 +1,10 @@
+///////////////////////////////
+/*각자의 영역을 링크(URL)해주는 영역*/
+///////////////////////////////
+
+//주소들은 모두 이곳, routes.js에 정의함.
+//한 파일이 바뀌면 모두 적용되도록 할 수 있음.
+
 // Global
 const HOME = "/";
 const JOIN = "/join";
@@ -26,15 +33,15 @@ const DELETE_VIDEO = "/:id/delete";
 const GITHUB = "/auth/github";
 const GITHUB_CALLBACK = "/auth/github/callback";
 
-// Facebook
-
-const FB = "/auth/facebook";
-const FB_CALLBACK = "/auth/facebook/callback";
+// Google
+const GOOGLE = "/auth/google";
+const GOOGLE_CALLBACK = "/auth/google/callback";
 
 // API
 
 const API = "/api";
 const REGISTER_VIEW = "/:id/view";
+const ADD_COMMENT = "/:id/comment";
 
 const routes = {
     home: HOME,
@@ -75,13 +82,14 @@ const routes = {
             return DELETE_VIDEO;
         }
     },
+    google: GOOGLE,
+    googleCallback: GOOGLE_CALLBACK,
     gitHub: GITHUB,
     githubCallback: GITHUB_CALLBACK,
     me: ME,
-    facebook: FB,
-    facebookCallback: FB_CALLBACK,
     api: API,
-    registerView: REGISTER_VIEW
+    registerView: REGISTER_VIEW,
+    addComment: ADD_COMMENT
 };
 
 export default routes;

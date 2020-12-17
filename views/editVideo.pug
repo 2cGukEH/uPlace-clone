@@ -3,6 +3,9 @@ extends layouts/main
 block content
     .form-container
         form(action=routes.editVideo(video.id), method="post")
+            <div class="wrapTitle">
+                <h5>동영상 수정</h5>
+            </div>
             input(type="text", placeholder="Title", name="title", value=video.title)
             textarea(name="description", placeholder="Description")=video.description
             input(type="submit", value="Update Video")
