@@ -2,8 +2,6 @@
 
 Upload your video and enjoy.
 
-- Academy: https://nomadcoders.co/wetube
-
 ## Pages:
 
 - [x] Home
